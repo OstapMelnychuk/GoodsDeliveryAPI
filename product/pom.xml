@@ -8,24 +8,26 @@
         <version>2.3.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bestfriends</groupId>
-    <artifactId>goods-delivery-api</artifactId>
+    <groupId>com.bestfriends.goodsdeliveryapi.product</groupId>
+    <artifactId>product</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>goods-delivery-api</name>
-    <description>Demo project for Spring Boot</description>
+    <name>product</name>
+    <description>Product module of Goods Delivery API</description>
 
     <properties>
         <java.version>14</java.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
     </properties>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>product</module>
-    </modules>
-
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -33,10 +35,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -73,10 +71,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
