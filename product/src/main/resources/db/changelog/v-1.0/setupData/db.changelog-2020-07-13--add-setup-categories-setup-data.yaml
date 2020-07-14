@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-13--add-setup-categories-setup-data-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: product_category_id
+                  type: numeric
+              - column:
+                  name: product_category_name
+                  type: string
+              - column:
+                  name: parent_product_category_id
+                  type: numeric
+            commentLineStartsWith: "#"
+            encoding: UTF-8
+            file: /db/changelog/v-1.0/setupDataFiles/setup_product_categories.csv
+            quotchar:  ''''
+            relativeToChangelogFile: false
+            separator: ';'
+            tableName: setup_product_categories
+            usePreparedStatements: true

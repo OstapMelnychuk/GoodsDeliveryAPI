@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-12--add-setup-product-categories-table-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: product_category_id
+                  type: bigint
+              - column:
+                  name: product_category_name
+                  type: varchar(200)
+              - column:
+                  name: parent_product_category_id
+                  type: bigint
+            remarks: This table contains product categories and it's parent categories.
+            tableName: setup_product_categories
+  - changeSet:
+      id: db.changelog-2020-07-12--add-setup-product-categories-table-2
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - addPrimaryKey:
+            columnNames: product_category_id
+            constraintName: product_categories_pk
+            tableName: setup_product_categories
+            validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: parent_product_category_id
+            baseTableName: setup_product_categories
+            constraintName: fk_product_categories_product_categories
+            referencedColumnNames: product_category_id
+            referencedTableName: setup_product_categories
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: varchar(200)
+            columnName: product_category_name
+            constraintName: products_product_category_name_not_null_constraint
+            tableName: setup_product_categories
+            validate: true

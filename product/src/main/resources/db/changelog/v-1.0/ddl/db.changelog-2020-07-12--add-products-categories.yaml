@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-12--add-products-categories-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: products_setup_product_categories_lnk_id
+                  type: bigint
+              - column:
+                  name: product_id
+                  type: bigint
+              - column:
+                  name: product_category_id
+                  type: bigint
+            remarks: This table contains all available products.
+            tableName: products_setup_product_categories_lnk
+  - changeSet:
+      id: db.changelog-2020-07-12--add-products-categories-2
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - addPrimaryKey:
+            columnNames: products_setup_product_categories_lnk_id
+            constraintName: products_setup_product_categories_lnk_pk
+            tableName: products_setup_product_categories_lnk
+            validate: true
+        - addUniqueConstraint:
+            columnNames: product_id, product_category_id
+            constraintName: products_setup_product_categories_lnk_product_id_product_category_id_unique_constraint
+            tableName: products_setup_product_categories_lnk
+            validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: product_id
+            baseTableName: products_setup_product_categories_lnk
+            constraintName: products_products_setup_product_categories_lnk_fk
+            referencedColumnNames: product_id
+            referencedTableName: products
+            validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: product_category_id
+            baseTableName: products_setup_product_categories_lnk
+            constraintName: setup_product_categories_products_setup_product_categories_lnk_fk
+            referencedColumnNames: product_category_id
+            referencedTableName: setup_product_categories
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: product_id
+            constraintName: products_setup_product_categories_lnk_product_category_id_not_null_constraint
+            tableName: products_setup_product_categories_lnk
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: product_category_id
+            constraintName: products_setup_product_categories_lnk_product_category_id_not_null_constraint
+            tableName: products_setup_product_categories_lnk
+            validate: true
