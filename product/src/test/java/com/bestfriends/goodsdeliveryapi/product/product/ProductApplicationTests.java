@@ -1,10 +1,10 @@
-package com.bestfriends.goodsdeliveryapi;
+package com.bestfriends.goodsdeliveryapi.product.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GoodsDeliveryApiApplicationTests {
+class ProductApplicationTests {
 
     @Test
     void contextLoads() {

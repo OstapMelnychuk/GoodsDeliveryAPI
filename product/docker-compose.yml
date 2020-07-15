@@ -1,0 +1,38 @@
+version: '3'
+services:
+  delivery-app-product:
+    container_name: delivery-app-product
+    image: "delivery-app-product"
+    environment:
+      - SPRING_PROFILES_ACTIVE=develop
+      - DB_USER=PRODUCT
+      - DB_PASSWORD=PRODUCT
+      - DB_HOST=jdbc:postgresql://database:5432/PRODUCT
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+      - redis
+    expose:
+      - "8080"
+    command: bash -c 'while !</dev/tcp/database/5432; do sleep 1; done;'
+  database:
+    container_name: database
+    image: "postgres"
+    environment:
+      - POSTGRES_USER=PRODUCT
+      - POSTGRES_PASSWORD=PRODUCT
+      - POSTGRES_DB=PRODUCT
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+  redis:
+    container_name: redis
+    image: redis:3.2.8
+    environment:
+      - REDIS_URL=redis:6379
+    ports:
+      - "6379:6379"
+volumes:
+  database-data:
