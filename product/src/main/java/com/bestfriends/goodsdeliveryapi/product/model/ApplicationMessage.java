@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Application message entity.
+ * Used for exception messages, user messages etc.
+ */
 @Entity
 @Table(name = "setup_application_messages")
 @Data

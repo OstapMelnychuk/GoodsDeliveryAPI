@@ -11,6 +11,9 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class used for loading application message from db into cache on application startup.
+ */
 @Configuration
 public class ApplicationMessageLoader {
     private final ApplicationMessageCash cash;
@@ -26,6 +29,10 @@ public class ApplicationMessageLoader {
         this.modelMapper = modelMapper;
     }
 
+    /**
+     * This method is executed on application startup and loads application message from db into cache.
+     * Before loading method removes all existing messages from cache which id's matches with id's from db.
+     */
     @PostConstruct
     public void loadMessagesIntoCache() {
         List<CachedApplicationMessage> applicationMessages =
