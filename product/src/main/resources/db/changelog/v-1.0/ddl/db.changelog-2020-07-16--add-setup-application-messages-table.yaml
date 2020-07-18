@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-16--add-setup-application-messages-table-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: application_message_id
+                  type: bigint
+              - column:
+                  name: application_message
+                  type: varchar(500)
+            remarks: This table contains application messages (error messages, user messages etc.).
+            tableName: setup_application_messages
+  - changeSet:
+      id: db.changelog-2020-07-16--add-setup-application-messages-table-2
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - addPrimaryKey:
+            columnNames: application_message_id
+            constraintName: application_message_id_pk
+            tableName: setup_application_messages
+            validate: true
+        - addUniqueConstraint:
+            columnNames: application_message
+            constraintName: application_message_unique_constraint
+            tableName: setup_application_messages
+            validate: true
