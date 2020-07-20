@@ -1,4 +1,4 @@
-package com.bestfriends.goodsdeliveryapi.product.product;
+package com.bestfriends.goodsdeliveryapi.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
