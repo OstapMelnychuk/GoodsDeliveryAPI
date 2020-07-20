@@ -1,9 +1,8 @@
 package com.bestfriends.goodsdeliveryapi.product.exceptions;
 
-import lombok.Getter;
-
 import java.util.IllegalFormatException;
 import java.util.Optional;
+import lombok.Getter;
 
 /**
  * Exception used when there is server error.
@@ -26,13 +25,13 @@ public class ProductException extends RuntimeException {
      */
     public ProductException(String errorMessage, Object... args) {
         super(Optional.ofNullable(errorMessage)
-                .map(m -> {
-                    try {
-                        return String.format(errorMessage, args);
-                    } catch (IllegalFormatException e) {
-                        return m;
-                    }
-                }).orElse(null));
+            .map(m -> {
+                try {
+                    return String.format(errorMessage, args);
+                } catch (IllegalFormatException e) {
+                    return m;
+                }
+            }).orElse(null));
 
         this.errorMessage = errorMessage;
         this.errorMessageId = null;
