@@ -2,4 +2,23 @@ databaseChangeLog:
   - include:
       file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-application-messages-table.yaml
   - include:
+<<<<<<< Updated upstream
+=======
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-setup-product-categories-table.yaml
+  - include:
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products-table.yaml
+  - include:
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products-categories.yaml
+  - include:
+      file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-13--add-setup-categories-setup-data.yaml
+  - include:
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-product-source-sites-table.yaml
+  - include:
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-product-source-sites-categories-mapping-table.yaml
+  - include:
+      file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-16--add-setup-product-source-sites-setup-data.yaml
+  - include:
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-application-messages-table.yaml
+  - include:
+>>>>>>> Stashed changes
       file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-18--add-setup-application-messages-setup-data.yaml

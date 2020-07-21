@@ -7,10 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+<<<<<<< Updated upstream
 /**
  * Application message entity.
  * Used for exception messages, user messages etc.
  */
+=======
+>>>>>>> Stashed changes
 @Entity
 @Table(name = "setup_application_messages")
 @Data

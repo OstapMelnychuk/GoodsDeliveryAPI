@@ -1,5 +1,6 @@
 package com.bestfriends.goodsdeliveryapi.product.exceptions;
 
+<<<<<<< Updated upstream
 import lombok.Getter;
 
 import java.util.IllegalFormatException;
@@ -65,5 +66,22 @@ public class ProductException extends RuntimeException {
         this.errorMessage = errorMessage;
         this.errorMessageId = cause.getErrorMessageId();
         this.args = cause.getArgs();
+=======
+public abstract class ProductException extends RuntimeException {
+    private final Long errorMessageCode;
+
+    /**
+     * All args constructor.
+     *
+     * @param errorMessageCode error code used for fetching message from cache. Fetched message is format string where
+     *                         parameters can be present. E.g. 'Some error text %d, %s'.
+     *                         Use {@link String#format(String, Object...)} to insert arguments.
+     * @param args             arguments to insert in format string.
+     */
+    public ProductException(Long errorMessageCode, String... args) {
+        this.errorMessageCode = errorMessageCode;
+
+        // todo Add fetching message from cache / db.
+>>>>>>> Stashed changes
     }
 }
