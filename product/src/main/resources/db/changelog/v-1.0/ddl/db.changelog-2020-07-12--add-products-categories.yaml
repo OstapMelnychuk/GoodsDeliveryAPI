@@ -15,7 +15,7 @@ databaseChangeLog:
               - column:
                   name: product_category_id
                   type: bigint
-            remarks: This table contains all available products.
+            remarks: This table links products and categories.
             tableName: products_setup_product_categories_lnk
   - changeSet:
       id: db.changelog-2020-07-12--add-products-categories-2

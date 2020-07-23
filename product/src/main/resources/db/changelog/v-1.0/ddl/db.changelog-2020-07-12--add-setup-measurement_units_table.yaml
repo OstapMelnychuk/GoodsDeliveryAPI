@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-12--add-setup-measurement_units_table-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: measurement_unit_id
+                  type: bigint
+              - column:
+                  name: measurement_unit_name
+                  type: varchar(50)
+            remarks: This table contains measurement units.
+            tableName: setup_measurement_units
+  - changeSet:
+      id: db.changelog-2020-07-12--add-setup-measurement_units_table-2
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - addPrimaryKey:
+            columnNames: measurement_unit_id
+            constraintName: measurement_unit_name_pk
+            tableName: setup_measurement_units
+            validate: true
+        - addUniqueConstraint:
+            columnNames: measurement_unit_name
+            constraintName: measurement_unit_name_unique_constraint
+            tableName: setup_measurement_units
+            validate: true

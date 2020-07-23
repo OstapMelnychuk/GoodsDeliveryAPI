@@ -19,7 +19,7 @@ databaseChangeLog:
                   name: amount
                   type: bigint
               - column:
-                  name: measurment_unit_id
+                  name: measurement_unit_id
                   type: bigint
               - column:
                   name: description
@@ -50,11 +50,11 @@ databaseChangeLog:
               tableName: products
               validate: true
         - addForeignKeyConstraint:
-            baseColumnNames: measurment_unit_id
+            baseColumnNames: measurement_unit_id
             baseTableName: products
-            constraintName: fk_products_setup_measurment_units
-            referencedColumnNames: measurment_unit_id
-            referencedTableName: setup_measurment_units
+            constraintName: fk_products_setup_measurement_units
+            referencedColumnNames: measurement_unit_id
+            referencedTableName: setup_measurement_units
             validate: true
         - addNotNullConstraint:
             columnDataType: varchar(200)
@@ -69,15 +69,15 @@ databaseChangeLog:
             tableName: products
             validate: true
         - addNotNullConstraint:
-            columnDataType: bigint
+            columnDataType: double
             columnName: amount
             constraintName: products_amount_not_null_constraint
             tableName: products
             validate: true
         - addNotNullConstraint:
             columnDataType: bigint
-            columnName: measurment_unit_id
-            constraintName: products_measurment_unit_id_not_null_constraint
+            columnName: measurement_unit_id
+            constraintName: products_measurement_unit_id_not_null_constraint
             tableName: products
             validate: true
         - addNotNullConstraint:
