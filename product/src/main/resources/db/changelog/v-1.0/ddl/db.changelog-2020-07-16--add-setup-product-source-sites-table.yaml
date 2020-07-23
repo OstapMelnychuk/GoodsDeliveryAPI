@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-16--add-setup-product-source-sites-table-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: source_site_id
+                  type: bigint
+              - column:
+                  name: source_site_name
+                  type: varchar(200)
+              - column:
+                  name: source_site_url
+                  type: varchar(1000)
+            remarks: This table contains sites with products.
+            tableName: setup_product_source_sites
+  - changeSet:
+      id: db.changelog-2020-07-16--add-setup-product-source-sites-table-2
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - addPrimaryKey:
+            columnNames: source_site_id
+            constraintName: setup_product_source_sites_pk
+            tableName: setup_product_source_sites
+            validate: true
+        - addUniqueConstraint:
+            columnNames: source_site_name
+            constraintName: setup_product_source_sites_source_site_name_unique_constraint
+            tableName: setup_product_source_sites
+            validate: true
+        - addUniqueConstraint:
+            columnNames: source_site_url
+            constraintName: setup_product_source_sites_source_site_url_unique_constraint
+            tableName: setup_product_source_sites
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: varchar(200)
+            columnName: source_site_name
+            constraintName: setup_product_source_sites_source_site_name_not_null_constraint
+            tableName: setup_product_source_sites
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: varchar(1000)
+            columnName: source_site_url
+            constraintName: setup_product_source_sites_source_site_url_not_null_constraint
+            tableName: setup_product_source_sites
+            validate: true

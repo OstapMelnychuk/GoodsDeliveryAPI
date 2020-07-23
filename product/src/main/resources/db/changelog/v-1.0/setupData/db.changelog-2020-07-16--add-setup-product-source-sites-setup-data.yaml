@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: db.changelog-2020-07-16--add-setup-product-source-sites-setup-data-1
+      author: 0lezhka
+      context: production, develop
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  name: source_site_id
+                  type: numeric
+              - column:
+                  name: source_site_name
+                  type: string
+              - column:
+                  name: source_site_url
+                  type: string
+            commentLineStartsWith: "#"
+            encoding: UTF-8
+            file: /db/changelog/v-1.0/setupDataFiles/setup_product_source_sites.csv
+            quotchar:  ''''
+            relativeToChangelogFile: false
+            separator: ';'
+            tableName: setup_product_source_sites
+            usePreparedStatements: true
