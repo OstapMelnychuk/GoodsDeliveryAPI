@@ -33,14 +33,14 @@ class CustomExceptionHandlerTest {
 
     @ParameterizedTest
     @MethodSource("provideProductExceptions")
-    public void testHandleProductException(ProductException exception, ExceptionResponse exceptionResponse) {
+    void testHandleProductException(ProductException exception, ExceptionResponse exceptionResponse) {
         ExceptionResponse actualExceptionResponse = exceptionHandler.handleProductException(exception).getBody();
 
         assertEquals(exceptionResponse, actualExceptionResponse);
     }
 
     @Test
-    public void testHandleProductExceptionWhenExistingErrorMessageIdPassed() {
+    void testHandleProductExceptionWhenExistingErrorMessageIdPassed() {
         ProductException exception = new ProductException(1L);
         ExceptionResponse expectedExceptionResponse = new ExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
             "Interval server error.", null);
@@ -53,7 +53,7 @@ class CustomExceptionHandlerTest {
     }
 
     @Test
-    public void testHandleProductExceptionWhenNotExistingErrorMessageIdPassed() {
+    void testHandleProductExceptionWhenNotExistingErrorMessageIdPassed() {
         ProductException exception = new ProductException(1L);
         ExceptionResponse expectedExceptionResponse = new ExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
             "Interval server error.", APPLICATION_MESSAGE_ID_DOESNT_EXIST.value());
@@ -67,14 +67,14 @@ class CustomExceptionHandlerTest {
 
     @ParameterizedTest
     @MethodSource("provideUserExceptions")
-    public void testHandleUserException(UserException exception, ExceptionResponse exceptionResponse) {
+    void testHandleUserException(UserException exception, ExceptionResponse exceptionResponse) {
         ExceptionResponse actualExceptionResponse = exceptionHandler.handleUserException(exception).getBody();
 
         assertEquals(exceptionResponse, actualExceptionResponse);
     }
 
     @Test
-    public void testHandleUserExceptionWhenExistingErrorMessageIdPassed() {
+    void testHandleUserExceptionWhenExistingErrorMessageIdPassed() {
         UserException exception = new UserException(1L, HttpStatus.NOT_FOUND, APPLICATION_MESSAGE_ID_DOESNT_EXIST);
         ExceptionResponse expectedExceptionResponse = new ExceptionResponse(HttpStatus.NOT_FOUND.value(),
             "Test message", APPLICATION_MESSAGE_ID_DOESNT_EXIST.value());
@@ -87,7 +87,7 @@ class CustomExceptionHandlerTest {
     }
 
     @Test
-    public void testHandleUserExceptionWhenNotExistingErrorMessageIdPassed() {
+    void testHandleUserExceptionWhenNotExistingErrorMessageIdPassed() {
         UserException exception = new UserException(1L, HttpStatus.NOT_FOUND, APPLICATION_MESSAGE_ID_DOESNT_EXIST);
         ExceptionResponse expectedExceptionResponse = new ExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),
             "Interval server error.", APPLICATION_MESSAGE_ID_DOESNT_EXIST.value());

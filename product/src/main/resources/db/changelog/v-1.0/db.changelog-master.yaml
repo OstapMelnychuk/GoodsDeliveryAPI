@@ -1,21 +1,21 @@
 databaseChangeLog:
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-application-messages-table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup_application_messages-table.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-setup-measurement_units_table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-setup_measurement_units-table.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-product-source-sites-table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup_product_source_sites-table.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-setup-product-categories-table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-setup_product_categories-table.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup-product-source-sites-categories-mapping-table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-16--add-setup_product_source_sites_categories_mapping-table.yaml
   - include:
       file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-16--add-setup-product-source-sites-setup-data.yaml
   - include:
       file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-18--add-setup-application-messages-setup-data.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products-table.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products_table.yaml
   - include:
-      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products-categories.yaml
+      file: /db/changelog/v-1.0/ddl/db.changelog-2020-07-12--add-products_setup_product_categories_lnk-table.yaml
   - include:
       file: /db/changelog/v-1.0/setupData/db.changelog-2020-07-13--add-setup-categories-setup-data.yaml

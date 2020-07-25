@@ -2,11 +2,15 @@ package com.bestfriends.goodsdeliveryapi.product.model;
 
 import java.util.List;
 import javax.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "setup_product_source_sites")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = "categoryMapping")
 public class ProductSourceSite {
     @Id
     @Column(name = "source_site_id")

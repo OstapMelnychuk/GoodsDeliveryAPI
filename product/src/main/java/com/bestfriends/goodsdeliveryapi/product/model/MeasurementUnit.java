@@ -14,6 +14,6 @@ public class MeasurementUnit {
     @Column(name = "measurement_unit_id")
     private Long id;
 
-    @Column(name = "measurement_unit_name")
+    @Column(name = "measurement_unit_name", nullable = false)
     private String name;
 }

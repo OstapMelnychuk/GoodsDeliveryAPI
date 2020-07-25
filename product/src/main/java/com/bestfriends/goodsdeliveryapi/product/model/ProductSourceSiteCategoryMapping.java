@@ -12,12 +12,15 @@ public class ProductSourceSiteCategoryMapping {
     @Column(name = "product_source_site_mapping_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private ProductCategory category;
 
-    @Column(name = "product_category_url")
+    @Column(name = "product_category_url", nullable = false)
     private String url;
 
-    @ManyToOne
+    @Column(name = "site_category_name", nullable = false)
+    private String name;
+
+    @ManyToOne(optional = false)
     private ProductSourceSite site;
 }

@@ -16,6 +16,9 @@ databaseChangeLog:
                   name: product_category_url
                   type: varchar(1000)
               - column:
+                  name: site_category_name
+                  type: varchar(200)
+              - column:
                   name: product_source_site_id
                   type: bigint
             remarks: This table contains url's of product categories and mapping site's categories to application's product categories.
@@ -61,6 +64,12 @@ databaseChangeLog:
             columnDataType: varchar(1000)
             columnName: product_category_url
             constraintName: setup_product_source_sites_mapping_product_category_url_not_null_constraint
+            tableName: setup_product_source_sites_mapping
+            validate: true
+        - addNotNullConstraint:
+            columnDataType: bigint
+            columnName: site_category_name
+            constraintName: setup_product_source_sites_mapping_site_category_name_not_null_constraint
             tableName: setup_product_source_sites_mapping
             validate: true
         - addNotNullConstraint:

@@ -30,13 +30,13 @@ databaseChangeLog:
         - addForeignKeyConstraint:
             baseColumnNames: parent_product_category_id
             baseTableName: setup_product_categories
-            constraintName: fk_product_categories_product_categories
+            constraintName: setup_product_categories_setup_product_categories_fk
             referencedColumnNames: product_category_id
             referencedTableName: setup_product_categories
             validate: true
         - addNotNullConstraint:
             columnDataType: varchar(200)
             columnName: product_category_name
-            constraintName: products_product_category_name_not_null_constraint
+            constraintName: setup_product_categories_product_category_name_not_null_constraint
             tableName: setup_product_categories
             validate: true

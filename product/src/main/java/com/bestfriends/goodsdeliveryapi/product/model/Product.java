@@ -14,13 +14,13 @@ public class Product {
     @Column(name = "product_id")
     private Long id;
 
-    @Column(name = "product_name")
+    @Column(name = "product_name", nullable = false)
     private String name;
 
-    @Column(name = "supplier_id")
+    @Column(name = "supplier_id", nullable = false)
     private Long supplier;
 
-    @Column(name = "amount")
+    @Column(name = "amount", nullable = false)
     private Double amount;
 
     @Column(name = "description")
@@ -32,7 +32,7 @@ public class Product {
     @Column(name = "currency_id")
     private BigDecimal currency;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private MeasurementUnit measurementUnit;
 
     @ManyToMany
